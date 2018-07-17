@@ -35,7 +35,7 @@ namespace ProjectManagement_API.Controllers
             {
                 dt = new ProjectBusiness(projcontext).GetProjects();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 var response = new HttpResponseMessage(HttpStatusCode.NotFound)
                 {

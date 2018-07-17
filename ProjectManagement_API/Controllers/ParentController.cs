@@ -33,7 +33,7 @@ namespace ProjectManagement_API.Controllers
             {
                 dt = new ParentBusiness(parentcontext).GetParents();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 var response = new HttpResponseMessage(HttpStatusCode.NotFound)
                 {

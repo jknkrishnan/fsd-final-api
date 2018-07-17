@@ -32,7 +32,7 @@ namespace ProjectManagement_API.Controllers
             {
                 dt = new UserBusiness(usercontext).GetUsers();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 var response = new HttpResponseMessage(HttpStatusCode.NotFound)
                 {
