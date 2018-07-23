@@ -13,14 +13,14 @@ namespace ProjectManagement_API.Controllers
 {
     public class ParentController : ApiController
     {
-        private IParentAppContext parentcontext = new ParentContext();
+        private ITaskAppContext parentcontext = new TaskContext();
 
         public ParentController()
         {
 
         }
 
-        public ParentController(IParentAppContext context)
+        public ParentController(ITaskAppContext context)
         {
             parentcontext = context;
         }

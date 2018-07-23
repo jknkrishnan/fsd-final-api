@@ -10,8 +10,8 @@ namespace ProjectManagement_DataContext.Repository
 {
     public class UserRepository
     {
-        private IUserAppContext usercontext;
-        public UserRepository(IUserAppContext context)
+        private ITaskAppContext usercontext;
+        public UserRepository(ITaskAppContext context)
         {
             usercontext = context;
         }

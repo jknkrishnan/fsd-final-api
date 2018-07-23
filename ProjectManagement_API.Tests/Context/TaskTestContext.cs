@@ -17,6 +17,9 @@ namespace ProjectManagement_API.Tests.Context
         }
 
         public DbSet<Task> Task { get; set; }
+        public DbSet<Project> Project { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Parent> Parent { get; set; }
 
         public int SaveChanges()
         {

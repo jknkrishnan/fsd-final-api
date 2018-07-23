@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectManagement_Entities
 {
@@ -15,6 +16,13 @@ namespace ProjectManagement_Entities
         public DateTime Start_Date { get; set; }
         public DateTime End_Date { get; set; }
         public int Priority { get; set; }
+
+        //foreign key        
+        public int User_Id { get; set; }        
+        public User User { get; set; }
+        //foreign objects
+        public ICollection<Parent> Parents { get; set; }
+        public ICollection<Task> Tasks { get; set; }
 
     }
 }

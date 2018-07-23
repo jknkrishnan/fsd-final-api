@@ -13,14 +13,14 @@ namespace ProjectManagement_API.Controllers
 {
     public class UserController : ApiController
     {
-        private IUserAppContext usercontext = new UserContext();
+        private ITaskAppContext usercontext = new TaskContext();
 
         public UserController()
         {
 
         }
 
-        public UserController(IUserAppContext context)
+        public UserController(ITaskAppContext context)
         {
             usercontext = context;
         }

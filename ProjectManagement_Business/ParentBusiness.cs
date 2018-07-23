@@ -11,9 +11,9 @@ namespace ProjectManagement_Business
 {
     public class ParentBusiness
     {
-        private IParentAppContext parentcontext;
+        private ITaskAppContext parentcontext;
 
-        public ParentBusiness(IParentAppContext context)
+        public ParentBusiness(ITaskAppContext context)
         {
             parentcontext = context;
         }

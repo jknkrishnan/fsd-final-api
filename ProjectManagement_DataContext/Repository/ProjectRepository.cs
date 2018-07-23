@@ -10,8 +10,8 @@ namespace ProjectManagement_DataContext.Repository
 {
     public class ProjectRepository
     {
-        private IProjectAppContext projectcontext;
-        public ProjectRepository(IProjectAppContext context)
+        private ITaskAppContext projectcontext;
+        public ProjectRepository(ITaskAppContext context)
         {
             projectcontext = context;
         }

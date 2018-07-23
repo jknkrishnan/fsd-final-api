@@ -13,15 +13,15 @@ namespace ProjectManagement_API.Controllers
 {
     public class ProjectController : ApiController
     {
-
-        private IProjectAppContext projcontext = new ProjectContext();
+                
+        private ITaskAppContext projcontext = new TaskContext();
 
         public ProjectController()
         {
 
         }
 
-        public ProjectController(IProjectAppContext context)
+        public ProjectController(ITaskAppContext context)
         {
             projcontext = context;
         }

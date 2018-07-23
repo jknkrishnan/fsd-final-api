@@ -11,9 +11,9 @@ namespace ProjectManagement_Business
 {
     public class UserBusiness
     {
-        private IUserAppContext usercontext;
+        private ITaskAppContext usercontext;
 
-        public UserBusiness(IUserAppContext context)
+        public UserBusiness(ITaskAppContext context)
         {
             usercontext = context;
         }

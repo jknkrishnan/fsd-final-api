@@ -11,9 +11,9 @@ namespace ProjectManagement_Business
 {
     public class ProjectBusiness
     {
-        private IProjectAppContext projcontext;
+        private ITaskAppContext projcontext;
 
-        public ProjectBusiness(IProjectAppContext context)
+        public ProjectBusiness(ITaskAppContext context)
         {
             projcontext = context;
         }

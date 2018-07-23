@@ -14,8 +14,8 @@ namespace ProjectManagement_Entities
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Employee_Id { get; set; }
-        public int? Project_Id { get; set; }
-        public int? Task_Id { get; set; }
 
+        //foreign object
+        public ICollection<Project> Project { get; set; }
     }
 }

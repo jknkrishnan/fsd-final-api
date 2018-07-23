@@ -13,16 +13,19 @@ namespace ProjectManagement_Entities
         [Key]
         public int Task_Id { get; set; }
 
-        public int Parent_Id { get; set; }            
-        public Parent Parent { get; set; }
-                
-        public int Project_Id { get; set; }        
-        public Project Project { get; set; }
-
+        public int? Parent_Id { get; set; }      //PARENT ID CAN BE NULL                                                    
+                                                      
         public string TaskDesc { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int Priority { get; set; }
-        public Char Status { get; set; }
+        public char Status { get; set; }
+
+        //foreign keys
+        public int Project_Id { get; set; }        
+        public Project Project { get; set; }
+        //foreign keys
+        public int User_Id { get; set; }        
+        public User User { get; set; }
     }
 }

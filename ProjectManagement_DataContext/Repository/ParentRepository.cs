@@ -10,8 +10,8 @@ namespace ProjectManagement_DataContext.Repository
 {
     public class ParentRepository
     {
-        private IParentAppContext parentcontext;
-        public ParentRepository(IParentAppContext context)
+        private ITaskAppContext parentcontext;
+        public ParentRepository(ITaskAppContext context)
         {
             parentcontext = context;
         }
