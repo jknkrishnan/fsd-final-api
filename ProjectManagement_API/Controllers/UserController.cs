@@ -45,24 +45,117 @@ namespace ProjectManagement_API.Controllers
         }
 
         // GET: api/User/5
-        public string Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            return "value";
+            IEnumerable<User> dt = null;
+            try
+            {
+                dt = new UserBusiness(usercontext).GetUsers(id);
+            }
+            catch (Exception ex)
+            {
+                var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format(ex.Message)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, dt);
         }
 
         // POST: api/User
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]User usr)
         {
+            IEnumerable<User> key = null;
+            string msg = "";
+            try
+            {
+                if (usr == null)
+                {
+                    throw new Exception("User cannot be null");
+                }
+                else
+                {
+                    key = new UserBusiness(usercontext).Post(usr);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                var response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+
+            }
+            return Request.CreateResponse(HttpStatusCode.Created, key);
         }
 
         // PUT: api/User/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(int id, [FromBody]User usr)
         {
+            string msg = "";
+            IEnumerable<User> key = null;
+            HttpResponseMessage response;
+
+            try
+            {
+                if ((usr == null) || (id <= 0))
+                {
+                    throw new Exception("Parameter cannot be null");
+                }
+                else
+                {
+                    key = new UserBusiness(usercontext).Put(usr);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.Created, key);
         }
 
         // DELETE: api/User/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            string msg = "";
+            int key = 0;
+            HttpResponseMessage response;
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new Exception("Parameter cannot be null");
+                }
+                else
+                {
+                    key = new UserBusiness(usercontext).Delete(id);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, key);
         }
     }
 }

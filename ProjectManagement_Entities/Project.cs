@@ -10,6 +10,10 @@ namespace ProjectManagement_Entities
 {
     public class Project
     {
+        public Project()
+        { 
+        }
+
         [Key]
         public int Project_Id { get; set; }
         public string Project_Name { get; set; }
@@ -21,8 +25,8 @@ namespace ProjectManagement_Entities
         public int User_Id { get; set; }        
         public User User { get; set; }
         //foreign objects
-        public ICollection<Parent> Parents { get; set; }
-        public ICollection<Task> Tasks { get; set; }
+        public ICollection<Parent> Parent { get; set; }
+        public ICollection<Task> Task { get; set; }
 
     }
 }

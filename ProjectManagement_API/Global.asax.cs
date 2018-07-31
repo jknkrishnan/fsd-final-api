@@ -21,9 +21,8 @@ namespace ProjectManagement_API
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TaskContext>());
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ParentContext>());
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ProjectContext>());
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<UserContext>());
+            
+
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ProjectManagement_Entities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int Priority { get; set; }
-        public char Status { get; set; }
+        public string Status { get; set; }
 
         //foreign keys
         public int Project_Id { get; set; }        

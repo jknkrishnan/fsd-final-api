@@ -26,7 +26,25 @@ namespace ProjectManagement_API.Tests.Context
             return 0;
         }
 
-        public void MarkAsModified(Task item) { }
+        public void MarkAsTaskModified(Task item)
+        {
+           
+        }
+
+        public void MarkAsUserModified(User item)
+        {
+           
+        }
+
+        public void MarkAsProjectModified(Project item)
+        {
+           
+        }
+
+        public void MarkAsParentModified(Parent item)
+        {
+           
+        }
         public void Dispose() { }
     }
 }

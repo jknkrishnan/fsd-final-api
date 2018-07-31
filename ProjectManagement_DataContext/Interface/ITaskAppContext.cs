@@ -14,6 +14,9 @@ namespace ProjectManagement_DataContext.Interface
         DbSet<User> User { get; }
         DbSet<Parent> Parent { get; }
         int SaveChanges();
-        void MarkAsModified(Task item);
+        void MarkAsTaskModified(Task item);
+        void MarkAsUserModified(User item);
+        void MarkAsProjectModified(Project item);
+        void MarkAsParentModified(Parent item);
     }
 }

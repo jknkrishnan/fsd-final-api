@@ -14,17 +14,33 @@ namespace ProjectManagement_DataContext
         public TaskContext()
             : base("name=Context")
         {
-
+            //this.Configuration.LazyLoadingEnabled = true;
         }
         public DbSet<Task> Task { get; set; }
         public DbSet<Project> Project { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Parent> Parent { get; set; }
 
-        public void MarkAsModified(Task item)
+        public void MarkAsTaskModified(Task item)
         {
             Entry(item).State = EntityState.Modified;
         }
+
+        public void MarkAsUserModified(User item)
+        {
+            Entry(item).State = EntityState.Modified;
+        }
+
+        public void MarkAsProjectModified(Project item)
+        {
+            Entry(item).State = EntityState.Modified;
+        }
+
+        public void MarkAsParentModified(Parent item)
+        {
+            Entry(item).State = EntityState.Modified;
+        }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -102,10 +102,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\ParentTestContext.cs" />
-    <Compile Include="Context\ProjectTestContext.cs" />
     <Compile Include="Context\TaskTestContext.cs" />
-    <Compile Include="Context\UserTestContext.cs" />
     <Compile Include="Controllers\ParentTestController.cs" />
     <Compile Include="Controllers\ProjectTestController.cs" />
     <Compile Include="Controllers\TaskTestController.cs" />

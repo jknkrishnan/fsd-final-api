@@ -9,6 +9,10 @@ namespace ProjectManagement_Entities
 {
     public class User
     {
+        public User()
+        {            
+        }
+
         [Key]
         public int User_Id { get; set; }
         public string First_Name { get; set; }
@@ -16,6 +20,8 @@ namespace ProjectManagement_Entities
         public string Employee_Id { get; set; }
 
         //foreign object
-        public ICollection<Project> Project { get; set; }
+        public virtual ICollection<Project> Project { get; set; }
+        public virtual ICollection<Task> Task { get; set; }
     }
 }
+
