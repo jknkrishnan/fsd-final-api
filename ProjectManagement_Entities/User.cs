@@ -20,8 +20,8 @@ namespace ProjectManagement_Entities
         public string Employee_Id { get; set; }
 
         //foreign object
-        public virtual ICollection<Project> Project { get; set; }
-        public virtual ICollection<Task> Task { get; set; }
+        public  ICollection<Project> Project { get; set; }
+        public  ICollection<Task> Task { get; set; }
     }
 }
 

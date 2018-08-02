@@ -24,5 +24,35 @@ namespace ProjectManagement_Business
             ls = (new ProjectRepository(projcontext).GetProjects());
             return ls;
         }
+
+        public List<Project> GetProjects(int id)
+        {
+            List<Project> ls;
+            ls = (new ProjectRepository(projcontext).GetProjects(id));
+            return ls;
+        }
+
+        public List<Project> Post(Project ts)
+        {
+            List<Project> ls;
+            ls = (new ProjectRepository(projcontext).Post(ts));
+            return ls;
+        }
+
+        public List<Project> Put(Project ts)
+        {
+            List<Project> ls;
+            ls = (new ProjectRepository(projcontext).Put(ts));
+            return ls;
+
+        }
+
+        public int Delete(int id)
+        {
+            int ls;
+            ls = (new ProjectRepository(projcontext).Delete(id));
+            return ls;
+        }
+
     }
 }

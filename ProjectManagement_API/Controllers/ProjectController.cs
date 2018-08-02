@@ -48,24 +48,117 @@ namespace ProjectManagement_API.Controllers
         }
 
         // GET: api/Project/5
-        public string Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            return "value";
+            IEnumerable<Project> dt = null;
+            try
+            {
+                dt = new ProjectBusiness(projcontext).GetProjects(id);
+            }
+            catch (Exception ex)
+            {
+                var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format(ex.Message)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, dt);
         }
 
         // POST: api/Project
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]Project proj)
         {
+            IEnumerable<Project> key = null;
+            string msg = "";
+            try
+            {
+                if (proj == null)
+                {
+                    throw new Exception("User cannot be null");
+                }
+                else
+                {
+                    key = new ProjectBusiness(projcontext).Post(proj);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                var response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+
+            }
+            return Request.CreateResponse(HttpStatusCode.Created, key);
         }
 
         // PUT: api/Project/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(int id, [FromBody]Project proj)
         {
+            string msg = "";
+            IEnumerable<Project> key = null;
+            HttpResponseMessage response;
+
+            try
+            {
+                if ((proj == null) || (id <= 0))
+                {
+                    throw new Exception("Parameter cannot be null");
+                }
+                else
+                {
+                    key = new ProjectBusiness(projcontext).Put(proj);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.Created, key);
         }
 
         // DELETE: api/Project/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            string msg = "";
+            int key = 0;
+            HttpResponseMessage response;
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new Exception("Parameter cannot be null");
+                }
+                else
+                {
+                    key = new ProjectBusiness(projcontext).Delete(id);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, key);
         }
     }
 }

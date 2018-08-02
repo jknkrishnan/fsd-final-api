@@ -17,10 +17,11 @@ namespace ProjectManagement_Entities
         [Key]
         public int Project_Id { get; set; }
         public string Project_Name { get; set; }
-        public DateTime Start_Date { get; set; }
-        public DateTime End_Date { get; set; }
-        public int Priority { get; set; }
-
+        public DateTime? Start_Date { get; set; }
+        public DateTime? End_Date { get; set; }
+        public int? Priority { get; set; }
+        public int? Suspend { get; set; }
+        public string Remarks { get; set; }
         //foreign key        
         public int User_Id { get; set; }        
         public User User { get; set; }
