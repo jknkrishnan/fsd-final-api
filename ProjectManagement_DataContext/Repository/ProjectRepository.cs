@@ -29,7 +29,7 @@ namespace ProjectManagement_DataContext.Repository
             List<Project> ls;
             ls = projectcontext.Project 
                 .Include(t => t.Task)
-                .Include(pr => pr.Parent)
+                //.Include(pr => pr.Parent)
                 .Where(p => p.Project_Id == id).ToList();
             return ls;
         }

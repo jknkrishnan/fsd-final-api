@@ -24,5 +24,34 @@ namespace ProjectManagement_Business
             ls = (new ParentRepository(parentcontext).GetParents());
             return ls;
         }
+
+        public List<Parent> GetParents(int id)
+        {
+            List<Parent> ls;
+            ls = (new ParentRepository(parentcontext).GetTasks(id));
+            return ls;
+        }
+
+        public List<Parent> Post(Parent ts)
+        {
+            List<Parent> ls;
+            ls = (new ParentRepository(parentcontext).Post(ts));
+            return ls;
+        }
+
+        public List<Parent> Put(Parent ts)
+        {
+            List<Parent> ls;
+            ls = (new ParentRepository(parentcontext).Put(ts));
+            return ls;
+
+        }
+
+        public int Delete(int id)
+        {
+            int ls;
+            ls = (new ParentRepository(parentcontext).Delete(id));
+            return ls;
+        }
     }
 }

@@ -46,24 +46,117 @@ namespace ProjectManagement_API.Controllers
         }
 
         // GET: api/Task/5
-        public string Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            return "value";
+            IEnumerable<Task> dt = null;
+            try
+            {
+                dt = new TaskBusiness(taskcontext).GetTasks(id);
+            }
+            catch (Exception ex)
+            {
+                var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format(ex.Message)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, dt);
         }
 
         // POST: api/Task
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]Task ts)
         {
+            IEnumerable<Task> key = null;
+            string msg = "";
+            try
+            {
+                if (ts == null)
+                {
+                    throw new Exception("Task cannot be null");
+                }
+                else
+                {
+                    key = new TaskBusiness(taskcontext).Post(ts);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                var response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+
+            }
+            return Request.CreateResponse(HttpStatusCode.Created, key);
         }
 
         // PUT: api/Task/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(int id, [FromBody]Task ts)
         {
+            string msg = "";
+            IEnumerable<Task> key = null;
+            HttpResponseMessage response;
+
+            try
+            {
+                if ((ts == null) || (id <= 0))
+                {
+                    throw new Exception("Parameter cannot be null");
+                }
+                else
+                {
+                    key = new TaskBusiness(taskcontext).Put(ts);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.Created, key);
         }
 
         // DELETE: api/Task/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            string msg = "";
+            int key = 0;
+            HttpResponseMessage response;
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new Exception("Parameter cannot be null");
+                }
+                else
+                {
+                    key = new TaskBusiness(taskcontext).Delete(id);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, key);
         }
     }
 }

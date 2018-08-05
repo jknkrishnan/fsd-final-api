@@ -49,22 +49,114 @@ namespace ProjectManagement_API.Controllers
         public HttpResponseMessage Get(int id)
         {
             IEnumerable<Parent> dt = null;
+            try
+            {
+                dt = new ParentBusiness(parentcontext).GetParents(id);
+            }
+            catch (Exception ex)
+            {
+                var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format(ex.Message)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
             return Request.CreateResponse(HttpStatusCode.OK, dt);
         }
 
         // POST: api/Parent
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]Parent ts)
         {
+            IEnumerable<Parent> key = null;
+            string msg = "";
+            try
+            {
+                if (ts == null)
+                {
+                    throw new Exception("Task cannot be null");
+                }
+                else
+                {
+                    key = new ParentBusiness(parentcontext).Post(ts);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                var response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+
+            }
+            return Request.CreateResponse(HttpStatusCode.Created, key);
         }
 
         // PUT: api/Parent/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(int id, [FromBody]Parent ts)
         {
+            string msg = "";
+            IEnumerable<Parent> key = null;
+            HttpResponseMessage response;
+
+            try
+            {
+                if ((ts == null) || (id <= 0))
+                {
+                    throw new Exception("Parameter cannot be null");
+                }
+                else
+                {
+                    key = new ParentBusiness(parentcontext).Put(ts);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.Created, key);
         }
 
         // DELETE: api/Parent/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            string msg = "";
+            int key = 0;
+            HttpResponseMessage response;
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new Exception("Parameter cannot be null");
+                }
+                else
+                {
+                    key = new ParentBusiness(parentcontext).Delete(id);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                response = new HttpResponseMessage(HttpStatusCode.Conflict)
+                {
+                    Content = new StringContent(string.Format(msg)),
+                    ReasonPhrase = "Error"
+                };
+                return response;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, key);
         }
     }
 }
