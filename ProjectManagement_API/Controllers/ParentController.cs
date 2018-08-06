@@ -64,26 +64,7 @@ namespace ProjectManagement_API.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK, dt);
         }
-
-        public HttpResponseMessage GetByProject(int id)
-        {
-            IEnumerable<Parent> dt = null;
-            try
-            {
-                dt = new ParentBusiness(parentcontext).GetByProject(id);
-            }
-            catch (Exception ex)
-            {
-                var response = new HttpResponseMessage(HttpStatusCode.NotFound)
-                {
-                    Content = new StringContent(string.Format(ex.Message)),
-                    ReasonPhrase = "Error"
-                };
-                return response;
-            }
-            return Request.CreateResponse(HttpStatusCode.OK, dt);
-        }
-
+        
         // POST: api/Parent
         public HttpResponseMessage Post([FromBody]Parent ts)
         {

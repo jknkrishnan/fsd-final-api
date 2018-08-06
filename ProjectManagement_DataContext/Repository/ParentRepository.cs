@@ -24,7 +24,7 @@ namespace ProjectManagement_DataContext.Repository
             return ls;
         }
 
-        public List<Parent> GetTasks(int id)
+        public List<Parent> GetParents(int id)
         {
             List<Parent> ls;
             ls = parentcontext.Parent

@@ -28,7 +28,7 @@ namespace ProjectManagement_Business
         public List<Parent> GetParents(int id)
         {
             List<Parent> ls;
-            ls = (new ParentRepository(parentcontext).GetTasks(id));
+            ls = (new ParentRepository(parentcontext).GetParents(id));
             return ls;
         }
 
