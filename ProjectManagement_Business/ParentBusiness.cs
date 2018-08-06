@@ -32,6 +32,13 @@ namespace ProjectManagement_Business
             return ls;
         }
 
+        public List<Parent> GetByProject(int id)
+        {
+            List<Parent> ls;
+            ls = (new ParentRepository(parentcontext).GetByProject(id));
+            return ls;
+        }
+
         public List<Parent> Post(Parent ts)
         {
             List<Parent> ls;

@@ -20,7 +20,9 @@ namespace ProjectManagement_DataContext.Repository
         public List<Project> GetProjects()
         {
             List<Project> ls;
-            ls = projectcontext.Project.ToList();
+            ls = projectcontext.Project
+                .Include(t => t.Task)
+                .ToList();
             return ls;
         }
 

@@ -32,6 +32,14 @@ namespace ProjectManagement_DataContext.Repository
             return ls;
         }
 
+        public List<Parent> GetByProject(int id)
+        {
+            List<Parent> ls;
+            ls = parentcontext.Parent
+                .Where(p => p.Project_Id == id).ToList();
+            return ls;
+        }
+
         public List<Parent> Post(Parent ts)
         {
             int key = 0;
