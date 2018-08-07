@@ -28,8 +28,8 @@ namespace ProjectManagement_DataContext.Repository
         {
             List<User> ls;            
             ls = usercontext.User
-                //.Include(p => p.Project)
-                //.Include(p => p.Task)
+                .Include(p => p.Project)
+                .Include(p => p.Task)
                 .Where(p => p.User_Id == id).ToList();            
             return ls;
         }

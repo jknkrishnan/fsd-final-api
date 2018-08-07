@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement_API", "ProjectManagement_API\ProjectManagement_API.csproj", "{139555F9-D787-4828-891C-671C22C2D825}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement_API.Tests", "ProjectManagement_API.Tests\ProjectManagement_API.Tests.csproj", "{DB648DB4-E7D6-4421-A8CC-DF48A762FD5C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement_Business", "ProjectManagement_Business\ProjectManagement_Business.csproj", "{F7947A93-F9B4-40B2-BFA8-B16EBB1A9ECC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement_DataContext", "ProjectManagement_DataContext\ProjectManagement_DataContext.csproj", "{22360DC5-4D02-43BB-B338-A39FFAC3ED1D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement_Entities", "ProjectManagement_Entities\ProjectManagement_Entities.csproj", "{591768CE-7252-43E3-BA8B-41FD26714DC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagement_APITestsAPI", "ProjectManagement_APITestsAPI\ProjectManagement_APITestsAPI.csproj", "{854B0F52-F5E3-4D63-96E7-5CACC7975851}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{139555F9-D787-4828-891C-671C22C2D825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{139555F9-D787-4828-891C-671C22C2D825}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{139555F9-D787-4828-891C-671C22C2D825}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DB648DB4-E7D6-4421-A8CC-DF48A762FD5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DB648DB4-E7D6-4421-A8CC-DF48A762FD5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DB648DB4-E7D6-4421-A8CC-DF48A762FD5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DB648DB4-E7D6-4421-A8CC-DF48A762FD5C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7947A93-F9B4-40B2-BFA8-B16EBB1A9ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7947A93-F9B4-40B2-BFA8-B16EBB1A9ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7947A93-F9B4-40B2-BFA8-B16EBB1A9ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{591768CE-7252-43E3-BA8B-41FD26714DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{591768CE-7252-43E3-BA8B-41FD26714DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{591768CE-7252-43E3-BA8B-41FD26714DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{854B0F52-F5E3-4D63-96E7-5CACC7975851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854B0F52-F5E3-4D63-96E7-5CACC7975851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854B0F52-F5E3-4D63-96E7-5CACC7975851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854B0F52-F5E3-4D63-96E7-5CACC7975851}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

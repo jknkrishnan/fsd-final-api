@@ -53,7 +53,13 @@ namespace ProjectManagement_API.Controllers
             IEnumerable<Project> dt = null;
             try
             {
+                if(id <= 0)
+                {
+                    throw new Exception("User ID cannot be null");
+                }
+                else { 
                 dt = new ProjectBusiness(projcontext).GetProjects(id);
+                }
             }
             catch (Exception ex)
             {
