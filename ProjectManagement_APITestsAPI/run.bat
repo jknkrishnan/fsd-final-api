@@ -1,0 +1,1 @@
+bin\Debug\NBench.Runner.exe bin\Debug\ProjectManagement_APITestsAPI.dll output-directory=PerformanceReports
