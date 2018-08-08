@@ -51,7 +51,11 @@ namespace ProjectManagement_API.Controllers
             IEnumerable<Task> dt = null;
             try
             {
+                if (id < 0)
+                { throw new Exception("Task cannot be null"); }
+                else { 
                 dt = new TaskBusiness(taskcontext).GetTasks(id);
+                }
             }
             catch (Exception ex)
             {

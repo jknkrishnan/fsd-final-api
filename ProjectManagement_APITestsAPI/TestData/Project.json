@@ -1,3 +1,10 @@
 ﻿{
-
+  "Project_Id": 1,
+  "Project_Name": "Zurich",
+  "Start_Date": "01/01/2018",
+  "End_Date": "01/12/2018",
+  "Priority": 1,
+  "Suspend": 1,
+  "Remarks": "No",
+  "User_Id" :  1
 }

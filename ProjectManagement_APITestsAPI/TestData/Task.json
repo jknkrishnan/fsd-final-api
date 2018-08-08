@@ -1,3 +1,12 @@
 ﻿{
-
+  "Task_Id": 1,
+  "Parent_Id": 1,
+  "TaskDesc": "Zurich",
+  "StartDate": "01/01/2018",
+  "EndDate": "01/02/2018",
+  "Priority": 1,
+  "Status": "Open",
+  "Project_Id": 1,
+  "User_Id" :  1
 }
+
